@@ -6,7 +6,7 @@ public class PSJF {
     static PriorityQueue<Process> processQueue = new PriorityQueue<Process>(10, new
             Comparator<Process>() {
                 public int compare(Process process1, Process process2) {
-                    return (int)(process1.getRemainingTime()-process2.getRemainingTime());
+                    return (int)((process1.getRemainingTime()-process2.getRemainingTime()) *(process1.getArrivalTime()-process2.getArrivalTime()));
                 }
             });
 
@@ -14,7 +14,7 @@ public class PSJF {
             Comparator<Process>() {
                 public int compare(Process process1, Process process2) {
                     //comparing both remaining time arrival time
-                    return (int)((process1.getRemainingTime()-process2.getRemainingTime()) *(process1.getArrivalTime()-process2.getArrivalTime()));
+                    return (int)(process1.getRemainingTime()-process2.getRemainingTime());
                 }
             });
     static GlobalTimer globalTimer = new GlobalTimer(0);
